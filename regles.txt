@@ -1,0 +1,8 @@
+chaque joueur a un personnage
+chaque personnage a un nombre de pv, des attaques et une certaine quantité d'energie
+chaque attaques a un certain nombre de dégat et/ou des effets secondaires et un certain coût en energie
+chaque debut de tour un personnage récupère une certaine quantité d'energie (variable en fonction du personnage)
+le joueur peut alors utiliser toute l'energie disponnible (avec plusieurs attaque ou une grosse attaque)
+,une petite quantité (une attaque) ou ne rien faire (économiser son energie pour une plus grosse attaque)
+certaines attaques ne sont utilisable qu'une fois par tour (sinon rique d'avoir un perso pété)
+les attaques utlimes beaucoup d'energie et ont un cooldown plus ou moins important
