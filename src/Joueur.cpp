@@ -30,6 +30,8 @@ void Joueur::jouer(){
     /*choisi une ou plusieurs attaques en fonction de son energie */
 }
 
+
+
 void Joueur::choisir_personnage(){
     /*se déclenche au debut*/
     /*choisi un perso a tour de rôle*/

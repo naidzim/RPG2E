@@ -19,6 +19,7 @@ public:
     void afficher() const;
     int getDegats() const;
     Attaque& operator=(Attaque const& attaqueACopier);
+    void afficherBis() const;
 
 private:
     std::string m_nom;
