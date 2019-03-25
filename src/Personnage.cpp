@@ -10,6 +10,9 @@ Personnage::Personnage()
 
 }
 
+Attaque * Personnage::getAttaque(){
+    return this->liste_attaque;
+}
 
 
 Personnage::Personnage(Personnage const& personnageACopier): m_vie(personnageACopier.m_vie), m_energie(personnageACopier.m_energie),
@@ -25,6 +28,14 @@ Personnage::~Personnage()
 {
 
 }
+
+ int Personnage::getVie(){
+    return this->m_vie;
+ }
+
+int Personnage::getEnergie(){
+    return this->m_energie;
+ }
 
  string Personnage::getNom(){
     return this->m_nom;

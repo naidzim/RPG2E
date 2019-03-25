@@ -21,6 +21,11 @@ void Attaque::afficher() const
     cout << "     - " << m_nom << " (Degats : " << m_degats <<", Energie : "<< m_cout_energie<<")" << endl;
 }
 
+void Attaque::afficherBis() const
+{
+    cout << m_nom << " (Degats : " << m_degats <<", Energie : "<< m_cout_energie<<")";
+}
+
 int Attaque::getDegats() const
 {
     return m_degats;

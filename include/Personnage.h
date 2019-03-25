@@ -30,9 +30,12 @@ public:
     Personnage& operator=(Personnage const& personnageACopier);
     void print_punch_line();
     string getNom();
+    int getVie();
+    int getEnergie();
+    Attaque * getAttaque();
 
 protected:
-    Attaque liste_attaque[3];
+    Attaque  liste_attaque[3];
     int m_vie;
     int m_energie;
     string punch_line;
