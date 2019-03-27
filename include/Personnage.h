@@ -1,4 +1,3 @@
-
 #ifndef DEF_PERSONNAGE
 #define DEF_PERSONNAGE
 
@@ -7,39 +6,36 @@
 #include "attaque.h"
 
 
-using namespace std;
-
 class Personnage
 {
 
 public:
-    //constructeurs
+
     Personnage();
-    //constructeur de copie
-    Personnage(Personnage const& personnageACopier);
+    Personnage(Personnage const& personnageACopier);//constructeur de copie
+    Personnage& operator=(Personnage const& personnageACopier);
 
-    //destructeurs
-    ~Personnage();
 
-    //methodes
-    void sePresenter();
+    void sePresenter() const; //affiche le nom, stats et attaques
+    void print_punch_line() const;
+    void afficherEtat() const; // affiche vie et energie actuelles (combat)
+
+    std::string getNom() const ;
+    std::string getNomAttaque(int i) const;
+    int getVie() const;
+    int getEnergie() const;
+    Attaque* getAttaque();
+
     void recevoirDegats(int nbDegats);
     void attaquer(Personnage &cible,Attaque attaque);
     bool estVivant() const;
-    void afficherEtat() const;
-    Personnage& operator=(Personnage const& personnageACopier);
-    void print_punch_line();
-    string getNom();
-    int getVie();
-    int getEnergie();
-    Attaque * getAttaque();
 
 protected:
-    Attaque  liste_attaque[3];
+    std::string m_nom;
+    std::string punch_line;
     int m_vie;
     int m_energie;
-    string punch_line;
-    string m_nom;
+    Attaque liste_attaque[3]; // 2 attaques + ultime
 
 };
 

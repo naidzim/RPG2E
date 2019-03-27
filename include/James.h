@@ -1,7 +1,6 @@
 #ifndef JAMES_H_INCLUDED
 #define JAMES_H_INCLUDED
 
-
 #include "Personnage.h"
 #include <iostream>
 #include <string>
@@ -16,7 +15,6 @@ class James : public Personnage {
 
     public:
         James();
-        //~James(); je sais pas si il le faut ou si il hérite
 
 };
 

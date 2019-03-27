@@ -10,12 +10,10 @@ Personnage::Personnage()
 
 }
 
-Attaque * Personnage::getAttaque(){
-    return this->liste_attaque;
-}
 
 
-Personnage::Personnage(Personnage const& personnageACopier): m_vie(personnageACopier.m_vie), m_energie(personnageACopier.m_energie),
+Personnage::Personnage(Personnage const& personnageACopier):
+    m_vie(personnageACopier.m_vie), m_energie(personnageACopier.m_energie),
     m_nom(personnageACopier.m_nom),punch_line(personnageACopier.punch_line)
 {
     liste_attaque[0]=  Attaque(personnageACopier.liste_attaque[0]);
@@ -24,35 +22,23 @@ Personnage::Personnage(Personnage const& personnageACopier): m_vie(personnageACo
 }
 
 
-Personnage::~Personnage()
-{
 
-}
-
- int Personnage::getVie(){
-    return this->m_vie;
- }
-
-int Personnage::getEnergie(){
-    return this->m_energie;
- }
-
- string Personnage::getNom(){
+string Personnage::getNom() const{
     return this->m_nom;
  }
 
-void Personnage::print_punch_line(){
-    cout<<"\""<<this->punch_line<<"\""<<endl;
+void Personnage::print_punch_line() const{
+    cout<<"\""<<punch_line<<"\""<<endl;
 }
 
-void Personnage::sePresenter(){
-    char lettre_choix = tolower(this->m_nom[0]);
-    cout<<"--------------------"<<this->m_nom<<" (appuyez sur "<<lettre_choix<<")"<<"--------------------"<<endl<<endl;
-    cout<<" * point de vie : "<<this->m_vie<<endl;
-    cout<<" * point de d'energie : "<<this->m_energie<<endl;
+void Personnage::sePresenter() const{
+
+    cout<<"--------------------"<<m_nom<<"--------------------"<<endl<<endl;
+    cout<<" * point de vie : "<<m_vie<<endl;
+    cout<<" * point de d'energie : "<<m_energie<<endl;
     cout<<" * attaque disponnible : "<<endl;
     for(int i =0;i<3;i++){
-        this->liste_attaque[i].afficher();
+        liste_attaque[i].afficher();
     }
     cout<<endl;
 }
@@ -102,4 +88,21 @@ void Personnage::afficherEtat() const
     cout << "Vie : " << m_vie << endl;
     cout << "energie : " << m_energie << endl;
 
+}
+int Personnage::getVie() const
+{
+    return m_vie;
+}
+int Personnage::getEnergie() const
+{
+    return m_energie;
+}
+
+Attaque* Personnage::getAttaque()
+{
+    return this->liste_attaque;
+}
+string Personnage::getNomAttaque(int i) const
+{
+    return liste_attaque[i].getNom();
 }

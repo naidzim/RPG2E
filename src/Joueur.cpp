@@ -1,39 +1,41 @@
-#include "../include/Personnage.h"
 #include <iostream>
 #include <string>
 #include "../include/Joueur.h"
+#include "../include/Personnage.h"
+
+using namespace std;
 
 Joueur::Joueur(){
 
 }
 
-Joueur::~Joueur()
-{
 
-}
-
-void Joueur::affiche(){
-    cout<<"mes couilles"<<this->m_perso_joueur.getNom()<<endl;
-}
 
 Joueur::Joueur(Personnage  perso_joueur){
-    this->m_perso_joueur=perso_joueur;
+    this->m_perso=perso_joueur;
 }
 
 
 Personnage Joueur::getPersonnage(){
-    return (this->m_perso_joueur);
+    return m_perso;
 }
 
-void Joueur::jouer(){
+int Joueur::jouer(){
     /*se déclenche a chaque tour*/
+    int action;
+    cout << "Que faire ??"<< endl;
+    cin >> action;
+
+    switch (action){
+        case 1:
+            cout << "Vous avez choisi" << m_perso.getNomAttaque(0)<<endl;
+            return 1;
+        case 2:
+            cout << "Vous avez choisi" << m_perso.getNomAttaque(2)<<endl;
+            return 2;
+        case 3:
+            cout << "Vous avez choisi" << m_perso.getNomAttaque(2)<<endl;
+            return 3;
+    }
     /*choisi une ou plusieurs attaques en fonction de son energie */
 }
-
-
-
-void Joueur::choisir_personnage(){
-    /*se déclenche au debut*/
-    /*choisi un perso a tour de rôle*/
-}
-

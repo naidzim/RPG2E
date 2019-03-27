@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
 
 void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour){
 

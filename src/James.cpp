@@ -3,7 +3,7 @@
 
 James::James(){
     //frappe fort et beaucoup de vie mais a peu d'energie et n'en reprend pas beaucoup chaque tour
-    // en gros c'est un tank
+    // Vous l'avez compris c'est un tank
     this->m_nom="James";
     this->punch_line="Vous allez moucher rouge !";
     this->m_vie=150;

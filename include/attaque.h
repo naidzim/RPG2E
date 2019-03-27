@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+
 
 //faire des classe filles pour pouvoir personnaliser les attaques ( effet d'endormissement, poison, buff en force, energie ,vie etc..)
 //ajouter une description des attaques pour printPersonnage.
@@ -16,10 +16,11 @@ class Attaque
 public:
     Attaque(); //constructeurs
     Attaque(std::string nom, int degats,int m_cout_energie); //surcharge de constructeurs
-    void afficher() const;
+    void afficher() const; // affiche infos completes sur attaque
+    void afficherBis() const;
+    std::string getNom() const;
     int getDegats() const;
     Attaque& operator=(Attaque const& attaqueACopier);
-    void afficherBis() const;
 
 private:
     std::string m_nom;

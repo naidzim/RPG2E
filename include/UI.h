@@ -8,8 +8,8 @@
 
 void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour);
 void UI_attaque(Joueur joueur);
-string convertEnergieToUI(int nbPointDenergie);
-string convertPdvToUI(int nbPointDeVie);
+std::string convertEnergieToUI(int nbPointDenergie);
+std::string convertPdvToUI(int nbPointDeVie);
 void animation_debut();
 
 #endif // UI_H_INCLUDED

@@ -15,15 +15,17 @@ Attaque::Attaque()
 
 }
 
-
 void Attaque::afficher() const
 {
     cout << "     - " << m_nom << " (Degats : " << m_degats <<", Energie : "<< m_cout_energie<<")" << endl;
 }
-
 void Attaque::afficherBis() const
 {
     cout << m_nom << " (Degats : " << m_degats <<", Energie : "<< m_cout_energie<<")";
+}
+string Attaque::getNom() const
+{
+    return this->m_nom;
 }
 
 int Attaque::getDegats() const
