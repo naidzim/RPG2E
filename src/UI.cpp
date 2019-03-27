@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+
 void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour){
 
     //Le paramètre nbTour servira à afficher le nombre de tour passé au lieu de "PREMIER TOUR"
@@ -71,4 +72,18 @@ au fur et a mesure que la partie avance*/
     }
     barre_de_vie = barre_de_vie + "*"+"     ";
     return barre_de_vie;
+}
+
+void animation_debut()
+{
+    cout<<"Debut du jeux ";
+    Sleep(500);
+    cout<<".";
+    Sleep(500);                //attend 3 secondes pour temporiser
+    cout<<".";
+    Sleep(500);
+    cout<<"."<<endl;
+    Sleep(300);
+    system ( "CLS" );      //on vide le contenu de la console pour afficher l'UI du jeux
+
 }

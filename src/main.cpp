@@ -49,37 +49,16 @@ void choixPersonnage(Joueur * joueur){
 }
 
 
-
-
-
-
-
-
-
 int main()
 {
 
-    cout<<"                                              -----------------------------------------------------------------------------------"<<endl;
-    cout << "                                                                             BIENVENUE SUR RP2GE                              "<<endl;
-    cout<<"                                              -----------------------------------------------------------------------------------"<<endl;
-
-
-    cout<<endl<<endl<<"Choisissez un personnage parmi les suivants :"<<endl<<endl;
     printPersonnage();                  //affiche les personnages disponnible
     Joueur joueur;                      // un joueur (il en faudrait 2 du coup)
     choixPersonnage(&joueur);           //permet au joueur de choisir le personnage
     Joueur joueur2 = Joueur(laffont);       //à remplacer par le vrai deuxième joueur plus tard
     cout<<endl<<"Vous avez choisi "<<joueur.getPersonnage().getNom()<<" !"<<endl<<endl;
     joueur.getPersonnage().print_punch_line();
-    cout<<"Debut du jeux ";
-    Sleep(1000);
-    cout<<".";
-    Sleep(1000);                //attend 3 secondes pour temporiser
-    cout<<".";
-    Sleep(1000);
-    cout<<"."<<endl;
-    Sleep(1000);
-    system ( "CLS" );      //on vide le contenu de la console pour afficher l'UI du jeux
+    animation_debut();
     affiche_UI(joueur,joueur2,0);           //affiche l'UI du jeux
     cout<<endl<<endl<<"Action de jeux a afficher ...";
     cout<<endl<<endl;
