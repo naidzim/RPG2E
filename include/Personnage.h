@@ -35,7 +35,7 @@ protected:
     std::string punch_line;
     int m_vie;
     int m_energie;
-    Attaque liste_attaque[3]; // 2 attaques + ultime
+    Attaque liste_attaque[3]; // 2 attaques +1 ultime
 
 };
 

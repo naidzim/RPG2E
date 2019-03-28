@@ -23,19 +23,18 @@ Personnage Joueur::getPersonnage(){
 int Joueur::jouer(){
     /*se déclenche a chaque tour*/
     int action;
-    cout << "Que faire ??"<< endl;
+    cout << "Choisir une attaque :"<< endl;
     cin >> action;
 
     switch (action){
         case 1:
-            cout << "Vous avez choisi" << m_perso.getNomAttaque(0)<<endl;
+            cout << "Vous avez choisi " << m_perso.getNomAttaque(0)<<endl;
             return 1;
         case 2:
-            cout << "Vous avez choisi" << m_perso.getNomAttaque(2)<<endl;
+            cout << "Vous avez choisi " << m_perso.getNomAttaque(2)<<endl;
             return 2;
         case 3:
-            cout << "Vous avez choisi" << m_perso.getNomAttaque(2)<<endl;
+            cout << "Vous avez choisi " << m_perso.getNomAttaque(2)<<endl;
             return 3;
     }
-    /*choisi une ou plusieurs attaques en fonction de son energie */
 }

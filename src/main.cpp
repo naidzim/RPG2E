@@ -9,22 +9,25 @@
 #include "windows.h"
 #include <cstdlib>
 
+
 using namespace std;
 
-/*---------------------------------------------------------------------------------------------------*/
-/*                                     SE JOUE PLEINE ECRAN                                          */
-/*---------------------------------------------------------------------------------------------------*/
+//personnage disponnible ( en globale c'est plus simple )
 
 
 
 int main()
 {
+
+
+
     int choix;
     choix = sessionInit();
     Joueur joueur,joueur2;
 
     if (choix == 1)
     {
+        printPersonnage();
         //Choix du joueur 1
         choixPersonnage(joueur);           //permet au joueur de choisir le personnage
         cout<<endl<<"Vous avez choisi "<<joueur.getPersonnage().getNom()<<" !"<<endl<<endl;
@@ -40,6 +43,7 @@ int main()
     animation_debut();
     affiche_UI(joueur,joueur2,0);           //affiche l'UI du jeux
     cout<<endl<<endl<<"Action de jeux a afficher ...";
+    joueur.jouer();
     cout<<endl<<endl;
     return 0;
 }

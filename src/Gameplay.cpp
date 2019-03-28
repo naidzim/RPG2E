@@ -1,6 +1,10 @@
 #include "../include/Gameplay.h"
 
-
+void ajoutPerso(vector<Personnage> &persoDispo)
+{
+    persoDispo.push_back(James());
+    persoDispo.push_back(Laffont());
+}
 int sessionInit()
 {
     int choix;
@@ -10,7 +14,7 @@ int sessionInit()
     cout<<"              -----------------------------------------------------------------------------------"<<endl;
     cout <<"\n\n";
     cout << "****Ce jeu se joue en PLEIN ECRAN ****"<< endl;
-    cout << "Appyer sur une touche !" << endl;
+    cout << "Appuyer sur Entrer !" << endl;
     getchar();
     do {
         cout << "1. Commencer une nouvelle partie"<< endl;
@@ -44,16 +48,21 @@ int sessionInit()
 
 }
 
-void printPersonnage(Joueur& joueur){
+void printPersonnage()
+{
+    vector<Personnage> persoDispo;
+    ajoutPerso(persoDispo);
+    cout<<endl<<endl<<"Choisissez un personnage parmi les suivants :"<<endl<<endl;
+    for (int i =0; i< persoDispo.size() ;i++)
 
-    joueur.getPersonnage().sePresenter();
+        persoDispo[i].sePresenter();
+
+
 
 }
 
 void choixPersonnage(Joueur& joueur){
-    //joueur est entré/sortie => pointeur
-    cout<<endl<<endl<<"Choisissez un personnage parmi les suivants :"<<endl<<endl;
-    //printPersonnage();                  //affiche les personnages disponnible
+
     string choix, str;
     bool choix_ok =false;
     while(!choix_ok){
