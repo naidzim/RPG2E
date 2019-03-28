@@ -54,9 +54,10 @@ void Personnage::recevoirDegats(int nbDegats)
 
 }
 
-void Personnage::attaquer(Personnage &cible,Attaque attaque)
+int Personnage::attaquer(Personnage &cible,Attaque const attaque)
 {
     cible.recevoirDegats(attaque.getDegats());
+    return 0;
 }
 
 

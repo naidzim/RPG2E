@@ -57,8 +57,6 @@ void printPersonnage()
 
         persoDispo[i].sePresenter();
 
-
-
 }
 
 void choixPersonnage(Joueur& joueur){

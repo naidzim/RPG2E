@@ -10,7 +10,7 @@ void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour){
     //Il sera récupéré via la futur boucle while qui fera tourner le programme et qui l'incrementera
     /*fonction à appeler à chaque fin de tour précédé de 'std::system ( "CLS" )'
     pour redéssinner l'UI*/
-
+    system ( "CLS" );      //on vide le contenu de la console pour afficher l'UI du jeux
     Personnage perso_J1 = joueur_1.getPersonnage();
     Personnage perso_J2 = joueur_2.getPersonnage();
     cout<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;

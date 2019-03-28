@@ -16,7 +16,7 @@ Joueur::Joueur(Personnage  perso_joueur){
 }
 
 
-Personnage Joueur::getPersonnage(){
+Personnage& Joueur::getPersonnage(){
     return m_perso;
 }
 

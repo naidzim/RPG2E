@@ -15,7 +15,6 @@ public:
     Personnage(Personnage const& personnageACopier);//constructeur de copie
     Personnage& operator=(Personnage const& personnageACopier);
 
-
     void sePresenter() const; //affiche le nom, stats et attaques
     void print_punch_line() const;
     void afficherEtat() const; // affiche vie et energie actuelles (combat)
@@ -27,7 +26,7 @@ public:
     Attaque* getAttaque();
 
     void recevoirDegats(int nbDegats);
-    void attaquer(Personnage &cible,Attaque attaque);
+    int attaquer(Personnage &cible,Attaque const attaque);
     bool estVivant() const;
 
 protected:

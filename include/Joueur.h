@@ -13,7 +13,7 @@ public:
     Joueur(Personnage perso_joueur);
 
     int jouer();                       // permet de choisir une action
-    Personnage getPersonnage();
+    Personnage& getPersonnage();
 
 //private:
     Personnage m_perso;
