@@ -1,6 +1,5 @@
 #include "../include/Gameplay.h"
 
-using namespace std;
 
 int sessionInit()
 {
@@ -10,6 +9,9 @@ int sessionInit()
     cout << "                                           BIENVENUE SUR RP2GE                              "<<endl;
     cout<<"              -----------------------------------------------------------------------------------"<<endl;
     cout <<"\n\n";
+    cout << "****Ce jeu se joue en PLEIN ECRAN ****"<< endl;
+    cout << "Appyer sur une touche !" << endl;
+    getchar();
     do {
         cout << "1. Commencer une nouvelle partie"<< endl;
         cout << "2. Afficher les regles du jeu" << endl;
@@ -52,18 +54,21 @@ void choixPersonnage(Joueur& joueur){
     //joueur est entré/sortie => pointeur
     cout<<endl<<endl<<"Choisissez un personnage parmi les suivants :"<<endl<<endl;
     //printPersonnage();                  //affiche les personnages disponnible
-    string choix;
+    string choix, str;
     bool choix_ok =false;
     while(!choix_ok){
         cout<<"Quelle est votre choix ? : ";
-        cin>>choix;
-        if (choix == "James")
+        cin>> str;
+
+        choix = miniscule(str);
+
+        if (choix == "james")
         {
             joueur.m_perso = James();
             choix_ok=true;
 
         }
-        else if (choix == "Laffont")
+        else if (choix == "laffont")
         {
 
             joueur.m_perso = Laffont();
@@ -73,4 +78,13 @@ void choixPersonnage(Joueur& joueur){
             cout<<"Choisis un personnage disponnible gros con !"<<endl;
         }
 
+}
+
+string miniscule (string str)
+{
+    string mot;
+    locale loc;
+    for (std::string::size_type i=0; i<str.length(); ++i)
+    mot += tolower(str[i],loc);
+    return mot;
 }
