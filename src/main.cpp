@@ -19,8 +19,8 @@ using namespace std;
 int main()
 {
     int choix;
-    Attaque atak;
-
+    int nbTour=1;
+    Attaque attaque;
     choix = sessionInit();
     Joueur joueur1,joueur2;
 
@@ -40,17 +40,30 @@ int main()
         joueur2.getPersonnage().print_punch_line();
 
         animation_debut();
-        //debut de la partie
-        affiche_UI(joueur1,joueur2,0);           //affiche l'UI du jeux
-        cout<<endl<<endl<<"Action de jeux a afficher ...";
-        choix = joueur1.jouer() - 1; //retourn le numero de l'attaque
-        atak = joueur1.getPersonnage().getAttaque()[choix];
-        atak.afficher();
-        joueur1.getPersonnage().attaquer(joueur2.getPersonnage(),atak);
-        affiche_UI(joueur1,joueur2,0);
-        choix = joueur2.jouer() - 1; //retourn le numero de l'attaque
+        affiche_UI(joueur1,joueur2,0,Attaque());                        //affiche l'UI du jeux (tour 0)
+        while(joueur1.getPersonnage().estVivant() && joueur2.getPersonnage().estVivant()){             //tant que j1 et j2 sont vivant (personne n'est mort)
+
+            //debut de la partie
+
+            //-----------------TOUR DE J1----------------------------------
+
+            choix = joueur1.jouer() - 1;                               // retourne le numero de l'attaque
+            attaque = joueur1.getPersonnage().getAttaque()[choix];        // selectionne l'attaque a partir du choix
+            joueur1.getPersonnage().attaquer(joueur2.getPersonnage(),attaque);
+            affiche_UI(joueur2,joueur1,nbTour,attaque);
+            //attaque.afficher();                                           // affiche l'attaque choisit
+
+            //-----------------TOUR DE J2----------------------------------
+
+            choix = joueur2.jouer() - 1;                               //retourne le numero de l'attaque
+            attaque = joueur2.getPersonnage().getAttaque()[choix];        // selectionne l'attaque a partir du choix
+            joueur2.getPersonnage().attaquer(joueur1.getPersonnage(),attaque);
+            affiche_UI(joueur1,joueur2,nbTour,attaque);
+            //attaque.afficher();                                           // affiche l'attaque choisit
+            nbTour++;
 
 
+        }
     }
     return 0;
 }

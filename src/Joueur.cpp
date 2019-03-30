@@ -2,6 +2,7 @@
 #include <string>
 #include "../include/Joueur.h"
 #include "../include/Personnage.h"
+#include "../include/UI.h"
 
 using namespace std;
 
@@ -22,6 +23,9 @@ Personnage& Joueur::getPersonnage(){
 
 int Joueur::jouer(){
     /*se déclenche a chaque tour*/
+
+    Attaque attaque;
+    int choix;
     int action;
     cout << "Choisir une attaque :"<< endl;
     cin >> action;

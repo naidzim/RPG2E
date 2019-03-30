@@ -1,20 +1,86 @@
 #include "../include/UI.h"
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
-void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour){
+string convertNbTourUI(int nbTour){
+    //convertit le nombre de tour en élément affichable
+    // ex : 1 => PREMIER 2=> DEUXIEME etc..
+    //si quelqu'un a la fois il peut en rajouter au cas ou
 
-    //Le paramètre nbTour servira à afficher le nombre de tour passé au lieu de "PREMIER TOUR"
-    //Il sera récupéré via la futur boucle while qui fera tourner le programme et qui l'incrementera
-    /*fonction à appeler à chaque fin de tour précédé de 'std::system ( "CLS" )'
-    pour redéssinner l'UI*/
-    system ( "CLS" );      //on vide le contenu de la console pour afficher l'UI du jeux
+    string numTour;
+    switch(nbTour){
+        case 0 :
+            numTour = "PREMIER";
+            break;
+        case 1 :
+            numTour = "PREMIER";
+            break;
+        case 2 :
+            numTour = "DEUXIEME";
+            break;
+        case 3 :
+            numTour = "TROISIEME";
+            break;
+        case 4 :
+            numTour = "QUATRIEME";
+            break;
+        case 5 :
+            numTour = "CINQUIEME";
+            break;
+        case 6 :
+            numTour = "SIXIEME";
+            break;
+        case 7 :
+            numTour = "SEPTIEME";
+            break;
+        case 8 :
+            numTour = "HUITIEME";
+            break;
+        case 9 :
+            numTour = "NEUVIEME";
+            break;
+        case 10 :
+            numTour = "DIXIEME";
+            break;
+        default :
+            numTour = "N'IEME";
+            break;
+    }
+
+    return numTour;
+}
+
+string convertAttaqueToAction(Joueur attaquant,Joueur cible,Attaque attaque){
+    //transforme une attaque en action de jeux (ex: machin attaque bidule avec coup de boule...)
+    ostringstream temp;
+    temp<<attaque.getDegats();
+    string attaqueS = temp.str();
+    string action = "   * "+attaquant.getPersonnage().getNom()+" a utilise "+ attaque.getNom()+" ! ";
+    action += "      => "+cible.getPersonnage().getNom()+ " a perdu "+ attaqueS + " point de vie \n\n";
+    return action;
+}
+
+void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour, Attaque attaque){
+
+
+    //fonction à appeler à chaque fin de tour précédé de 'std::system ( "CLS" )'
+    //pour redéssinner l'UI
+    //cmpt compte le nombre d'action ce tour ci pour l'instant limité à 1 action par perso => 2 max/tour
+    //actionUI affiche les actions a la suite pour le même tour même si on redéssine l'UI
+    //déclaré en static pour persistence
+
+    static string actionUI;
+    static int cmpt=2;
+    string action;
+    system ( "CLS" );      //on vide le contenu de la console pour afficher le nouvel UI du jeux
     Personnage perso_J1 = joueur_1.getPersonnage();
     Personnage perso_J2 = joueur_2.getPersonnage();
+    string numTour = convertNbTourUI(nbTour);
     cout<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
-    cout << "                                                                                PREMIER TOUR                              "<<endl;
+    cout << "                                                                            "<<numTour<<"  TOUR                              "<<endl;
     cout<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
     cout<<endl<<endl<<endl<<endl<<"          "<<perso_J1.getNom()<<endl;
     cout<<convertPdvToUI(perso_J1.getVie())<<perso_J1.getVie()<<" point de vie  "<<endl;
@@ -26,6 +92,25 @@ void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour){
     cout<<endl<<endl<<endl<<endl<<endl;
     UI_attaque(joueur_1);
     cout<<endl<<endl;
+    if(nbTour == 0){      //debut du jeux pas encore d'action à afficher
+        actionUI = "";
+    }
+    else{
+        action = convertAttaqueToAction(joueur_2,joueur_1,attaque);
+        if(cmpt==2){
+            actionUI=action;
+            cmpt=1;
+        }
+        else{
+            actionUI+=action;
+            cmpt+=1;
+        }
+    }
+    cout<<endl<<" ------------------------------------------------ACTION DE JEUX----------------------------------------------- ";
+    cout<<endl<<endl;
+    cout<<actionUI<<endl;
+    cout<<" -------------------------------------------------------------------------------------------------------------  "<<endl<<endl;
+
 }
 
 void UI_attaque(Joueur joueur){
