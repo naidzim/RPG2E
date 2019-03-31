@@ -24,10 +24,10 @@ public:
     int getVie() const;
     int getEnergie() const;
     Attaque* getAttaque();
-
-    void recevoirDegats(int nbDegats);
-    int attaquer(Personnage &cible,Attaque const attaque);
     bool estVivant() const;
+    void recevoirDegats(int nbDegats);
+    int attaquer(Personnage  &cible,Attaque const attaque);
+
 
 protected:
     std::string m_nom;

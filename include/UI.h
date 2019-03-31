@@ -6,10 +6,11 @@
 
 
 
-void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour);
+void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour,Attaque attaque);
 void UI_attaque(Joueur joueur);
 std::string convertEnergieToUI(int nbPointDenergie);
 std::string convertPdvToUI(int nbPointDeVie);
 void animation_debut();
+std::string convertNbTourUI(int nbTour);
 
 #endif // UI_H_INCLUDED
