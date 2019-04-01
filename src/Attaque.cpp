@@ -33,6 +33,11 @@ int Attaque::getDegats() const
     return m_degats;
 }
 
+int Attaque::getEnergie() const
+{
+    return m_cout_energie;
+}
+
 Attaque& Attaque::operator=(Attaque const& attaqueACopier)
 {
     if( this != &attaqueACopier )

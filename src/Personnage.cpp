@@ -54,9 +54,26 @@ void Personnage::recevoirDegats(int nbDegats)
 
 }
 
+void Personnage::perdreEenergie(int nbEnergie)
+{
+    m_energie -= nbEnergie;
+
+    if (m_energie <0) {m_energie = 0;}
+}
+
+void Personnage::recevoirEenergie(int nbEnergie)
+{
+
+}
+
 int Personnage::attaquer(Personnage &cible,Attaque const attaque)
 {
-    cible.recevoirDegats(attaque.getDegats());
+    if (m_energie >= attaque.getEnergie())
+    {
+        cible.recevoirDegats(attaque.getDegats());
+        this->perdreEenergie(attaque.getEnergie());
+        return 1;
+    }
     return 0;
 }
 

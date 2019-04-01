@@ -26,6 +26,8 @@ public:
     Attaque* getAttaque();
     bool estVivant() const;
     void recevoirDegats(int nbDegats);
+    void perdreEenergie(int nbEnergie);
+    void recevoirEenergie(int nbEnergie);
     int attaquer(Personnage  &cible,Attaque const attaque);
 
 

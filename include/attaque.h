@@ -16,10 +16,14 @@ class Attaque
 public:
     Attaque(); //constructeurs
     Attaque(std::string nom, int degats,int m_cout_energie); //surcharge de constructeurs
+
     void afficher() const; // affiche infos completes sur attaque
     void afficherBis() const;
+
     std::string getNom() const;
     int getDegats() const;
+    int getEnergie() const;
+
     Attaque& operator=(Attaque const& attaqueACopier);
 
 private:
