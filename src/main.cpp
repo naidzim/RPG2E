@@ -41,15 +41,23 @@ int main()
 
         animation_debut();
         affiche_UI(joueur1,joueur2,0,Attaque());                        //affiche l'UI du jeux (tour 0)
-        while(joueur1.getPersonnage().estVivant() && joueur2.getPersonnage().estVivant()){             //tant que j1 et j2 sont vivant (personne n'est mort)
-
+        do{
             //debut de la partie
 
             //-----------------TOUR DE J1----------------------------------
 
-            choix = joueur1.jouer() - 1;                               // retourne le numero de l'attaque
-            attaque = joueur1.getPersonnage().getAttaque()[choix];        // selectionne l'attaque a partir du choix
-            joueur1.getPersonnage().attaquer(joueur2.getPersonnage(),attaque);
+            choix = joueur1.jouer();                               // retourne le numero de l'attaque
+            if (choix < 4)
+            {
+                choix -= 1;
+                attaque = joueur1.getPersonnage().getAttaque()[choix];        // selectionne l'attaque a partir du choix
+                joueur1.getPersonnage().attaquer(joueur2.getPersonnage(),attaque);
+            }
+            else if (choix == 4)
+            {
+                joueur1.getPersonnage().recevoirEenergie(25);
+            }
+
             affiche_UI(joueur2,joueur1,nbTour,attaque);
             //attaque.afficher();                                           // affiche l'attaque choisit
 
@@ -61,9 +69,10 @@ int main()
             affiche_UI(joueur1,joueur2,nbTour,attaque);
             //attaque.afficher();                                           // affiche l'attaque choisit
             nbTour++;
+        }while(joueur1.getPersonnage().estVivant() && joueur2.getPersonnage().estVivant());             //tant que j1 et j2 sont vivant (personne n'est mort)
 
 
         }
-    }
+
     return 0;
 }

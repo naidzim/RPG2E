@@ -16,6 +16,7 @@ Personnage::Personnage(Personnage const& personnageACopier):
     m_vie(personnageACopier.m_vie), m_energie(personnageACopier.m_energie),
     m_nom(personnageACopier.m_nom),punch_line(personnageACopier.punch_line)
 {
+
     liste_attaque[0]=  Attaque(personnageACopier.liste_attaque[0]);
     liste_attaque[1]=  Attaque(personnageACopier.liste_attaque[1]);
     liste_attaque[2]=  Attaque(personnageACopier.liste_attaque[2]);
@@ -63,6 +64,12 @@ void Personnage::perdreEenergie(int nbEnergie)
 
 void Personnage::recevoirEenergie(int nbEnergie)
 {
+    if (m_energie >= nrjMax)
+    {
+        m_energie = nrjMax;
+    }
+    else
+        m_energie += nbEnergie;
 
 }
 

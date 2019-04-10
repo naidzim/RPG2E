@@ -123,6 +123,7 @@ void UI_attaque(Joueur joueur){
     cout<<"   ";
     cout<<endl<<endl<<"   3) ";
     joueur.getPersonnage().getAttaque()[2].afficherBis();
+     cout<<"         4) Ne rien faire";
     cout<<endl<<endl;
     cout<<" _____________________________________________________________________________________________________________ "<<endl;
 
