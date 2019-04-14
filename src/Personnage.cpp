@@ -14,12 +14,12 @@ Personnage::Personnage()
 
 Personnage::Personnage(Personnage const& personnageACopier):
     m_vie(personnageACopier.m_vie), m_energie(personnageACopier.m_energie),
-    m_nom(personnageACopier.m_nom),punch_line(personnageACopier.punch_line)
+    m_nom(personnageACopier.m_nom),punch_line(personnageACopier.punch_line),nrjMax(personnageACopier.nrjMax)
 {
-
     liste_attaque[0]=  Attaque(personnageACopier.liste_attaque[0]);
     liste_attaque[1]=  Attaque(personnageACopier.liste_attaque[1]);
     liste_attaque[2]=  Attaque(personnageACopier.liste_attaque[2]);
+    liste_attaque[3]=  Attaque(personnageACopier.liste_attaque[3]);
 }
 
 
@@ -38,7 +38,7 @@ void Personnage::sePresenter() const{
     cout<<" * point de vie : "<<m_vie<<endl;
     cout<<" * point de d'energie : "<<m_energie<<endl;
     cout<<" * attaque disponnible : "<<endl;
-    for(int i =0;i<3;i++){
+    for(int i =0;i<4;i++){
         liste_attaque[i].afficher();
     }
     cout<<endl;
@@ -55,11 +55,12 @@ void Personnage::recevoirDegats(int nbDegats)
 
 }
 
+
 void Personnage::perdreEenergie(int nbEnergie)
 {
     m_energie -= nbEnergie;
 
-    if (m_energie <0) {m_energie = 0;}
+    if (m_energie <0) m_energie = 0;
 }
 
 void Personnage::recevoirEenergie(int nbEnergie)
@@ -73,14 +74,10 @@ void Personnage::recevoirEenergie(int nbEnergie)
 
 }
 
+
 int Personnage::attaquer(Personnage &cible,Attaque const attaque)
 {
-    if (m_energie >= attaque.getEnergie())
-    {
-        cible.recevoirDegats(attaque.getDegats());
-        this->perdreEenergie(attaque.getEnergie());
-        return 1;
-    }
+    cible.recevoirDegats(attaque.getDegats());
     return 0;
 }
 
@@ -101,9 +98,11 @@ Personnage& Personnage::operator=(Personnage const& personnageACopier)
         m_nom=personnageACopier.m_nom;
         m_vie = personnageACopier.m_vie;
         m_energie= personnageACopier.m_energie;
+        nrjMax=personnageACopier.nrjMax;
         this->liste_attaque[0]=personnageACopier.liste_attaque[0];
         this->liste_attaque[1]=personnageACopier.liste_attaque[1];
         this->liste_attaque[2]=personnageACopier.liste_attaque[2];
+        this->liste_attaque[3]=personnageACopier.liste_attaque[3];
     }
     return *this; //on renvoie l'objet lui meme
 }

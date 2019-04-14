@@ -6,13 +6,20 @@ using namespace std;
 Attaque::Attaque(string nom, int degats,int cout_energie)
 {
     this->m_nom=nom;
+    //cout<<m_nom<<endl;
     this->m_degats=degats;
+    //cout<<m_degats<<endl;
     this->m_cout_energie=cout_energie;
+    //cout<<m_cout_energie<<endl;
 }
 
 Attaque::Attaque()
 {
 
+}
+
+int Attaque::getCoutEnergie(){
+    return m_cout_energie;
 }
 
 void Attaque::afficher() const
@@ -31,11 +38,6 @@ string Attaque::getNom() const
 int Attaque::getDegats() const
 {
     return m_degats;
-}
-
-int Attaque::getEnergie() const
-{
-    return m_cout_energie;
 }
 
 Attaque& Attaque::operator=(Attaque const& attaqueACopier)

@@ -26,8 +26,8 @@ public:
     Attaque* getAttaque();
     bool estVivant() const;
     void recevoirDegats(int nbDegats);
-    void perdreEenergie(int nbEnergie);
     void recevoirEenergie(int nbEnergie);
+    void perdreEenergie(int nbEnergie);
     int attaquer(Personnage  &cible,Attaque const attaque);
 
 
@@ -37,7 +37,7 @@ protected:
     int m_vie;
     int m_energie;
     int nrjMax;
-    Attaque liste_attaque[3]; // 2 attaques +1 ultime
+    Attaque liste_attaque[4]; // 2 attaques +1 ultime
 
 };
 

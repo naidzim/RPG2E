@@ -10,9 +10,8 @@
 #include <cstdlib>
 
 
-using namespace std;
 
-//personnage disponnible ( en globale c'est plus simple )
+using namespace std;
 
 
 
@@ -41,38 +40,37 @@ int main()
 
         animation_debut();
         affiche_UI(joueur1,joueur2,0,Attaque());                        //affiche l'UI du jeux (tour 0)
-        do{
+        while(joueur1.getPersonnage().estVivant() && joueur2.getPersonnage().estVivant()){             //tant que j1 et j2 sont vivant (personne n'est mort)
+
             //debut de la partie
 
-            //-----------------TOUR DE J1----------------------------------
-
-            choix = joueur1.jouer();                               // retourne le numero de l'attaque
-            if (choix < 4)
-            {
-                choix -= 1;
+            if(joueur1.getPersonnage().estVivant() && joueur2.getPersonnage().estVivant()){
+                //-----------------TOUR DE J1----------------------------------
+                joueur1.getPersonnage().recevoirEenergie(25);
+                choix = joueur1.jouer() - 1;                               // retourne le numero de l'attaque
                 attaque = joueur1.getPersonnage().getAttaque()[choix];        // selectionne l'attaque a partir du choix
                 joueur1.getPersonnage().attaquer(joueur2.getPersonnage(),attaque);
-            }
-            else if (choix == 4)
-            {
-                joueur1.getPersonnage().recevoirEenergie(25);
+                joueur1.getPersonnage().perdreEenergie(attaque.getCoutEnergie());
+                affiche_UI(joueur2,joueur1,nbTour,attaque);
             }
 
-            affiche_UI(joueur2,joueur1,nbTour,attaque);
-            //attaque.afficher();                                           // affiche l'attaque choisit
 
-            //-----------------TOUR DE J2----------------------------------
-
-            choix = joueur2.jouer() - 1;                               //retourne le numero de l'attaque
-            attaque = joueur2.getPersonnage().getAttaque()[choix];        // selectionne l'attaque a partir du choix
-            joueur2.getPersonnage().attaquer(joueur1.getPersonnage(),attaque);
-            affiche_UI(joueur1,joueur2,nbTour,attaque);
-            //attaque.afficher();                                           // affiche l'attaque choisit
+            if(joueur1.getPersonnage().estVivant() && joueur2.getPersonnage().estVivant()){
+                //-----------------TOUR DE J2----------------------------------
+                joueur2.getPersonnage().recevoirEenergie(15);
+                choix = joueur2.jouer() - 1;                               //retourne le numero de l'attaque
+                attaque = joueur2.getPersonnage().getAttaque()[choix];        // selectionne l'attaque a partir du choix
+                joueur2.getPersonnage().attaquer(joueur1.getPersonnage(),attaque);
+                joueur2.getPersonnage().perdreEenergie(attaque.getCoutEnergie());
+                affiche_UI(joueur1,joueur2,nbTour,attaque);
+            }
             nbTour++;
-        }while(joueur1.getPersonnage().estVivant() && joueur2.getPersonnage().estVivant());             //tant que j1 et j2 sont vivant (personne n'est mort)
+             joueur1.getPersonnage().recevoirEenergie(25);
+             joueur2.getPersonnage().recevoirEenergie(15);
+            affiche_UI(joueur1,joueur2,nbTour,attaque);
 
 
         }
-
+    }
     return 0;
 }

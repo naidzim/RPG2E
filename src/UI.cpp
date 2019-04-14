@@ -114,7 +114,7 @@ void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour, Attaque attaque){
 }
 
 void UI_attaque(Joueur joueur){
-    cout<<" ____________________________________________________________________________________________________________ ";
+    cout<<" _____________________________________________________________________________________________________________ ";
     cout<<endl<<endl;
     cout<<"   1) ";
     joueur.getPersonnage().getAttaque()[0].afficherBis();
@@ -123,7 +123,8 @@ void UI_attaque(Joueur joueur){
     cout<<"   ";
     cout<<endl<<endl<<"   3) ";
     joueur.getPersonnage().getAttaque()[2].afficherBis();
-     cout<<"         4) Ne rien faire";
+    cout<<"         4) ";
+    joueur.getPersonnage().getAttaque()[3].afficherBis();
     cout<<endl<<endl;
     cout<<" _____________________________________________________________________________________________________________ "<<endl;
 

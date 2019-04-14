@@ -24,14 +24,13 @@ Personnage& Joueur::getPersonnage(){
 int Joueur::jouer(){
     /*se déclenche a chaque tour*/
 
+    Attaque attaque;
+    int choix;
     int action;
     cout << "Choisir une attaque :"<< endl;
     cin >> action;
 
     switch (action){
-        case 4:
-            cout << " Vous avez choisi de ne rien faire" << endl;
-            return 4;
         case 1:
             cout << "Vous avez choisi " << m_perso.getNomAttaque(0)<<endl;
             return 1;
@@ -41,5 +40,8 @@ int Joueur::jouer(){
         case 3:
             cout << "Vous avez choisi " << m_perso.getNomAttaque(2)<<endl;
             return 3;
+        case 4:
+            cout << "Vous avez choisi " << m_perso.getNomAttaque(3)<<endl;
+            return 4;
     }
 }
