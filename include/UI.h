@@ -2,8 +2,7 @@
 #define UI_H_INCLUDED
 
 #include "../include/Joueur.h"
-#include "windows.h"
-
+#include <unistd.h>
 
 
 void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour,Attaque attaque);

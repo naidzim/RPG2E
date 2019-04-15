@@ -75,7 +75,7 @@ void affiche_UI(Joueur joueur_1,Joueur joueur_2,int nbTour, Attaque attaque){
     static string actionUI;
     static int cmpt=2;
     string action;
-    system ( "CLS" );      //on vide le contenu de la console pour afficher le nouvel UI du jeux
+    system ( "clear" );      //on vide le contenu de la console pour afficher le nouvel UI du jeux
     Personnage perso_J1 = joueur_1.getPersonnage();
     Personnage perso_J2 = joueur_2.getPersonnage();
     string numTour = convertNbTourUI(nbTour);
@@ -165,13 +165,13 @@ au fur et a mesure que la partie avance*/
 void animation_debut()
 {
     cout<<"Debut du jeux ";
-    Sleep(500);
+    sleep(0.5);
     cout<<".";
-    Sleep(500);                //attend 3 secondes pour temporiser
+    sleep(0.5);                //attend 3 secondes pour temporiser
     cout<<".";
-    Sleep(500);
+    sleep(0.5);
     cout<<"."<<endl;
-    Sleep(300);
-    system ( "CLS" );      //on vide le contenu de la console pour afficher l'UI du jeux
+    sleep(0.3);
+    system ( "clear" );      //on vide le contenu de la console pour afficher l'UI du jeux
 
 }

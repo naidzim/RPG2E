@@ -6,7 +6,6 @@
 #include "../include/Laffont.h"
 #include "../include/James.h"
 #include "../include/Joueur.h"
-#include "windows.h"
 #include <cstdlib>
 
 

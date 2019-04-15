@@ -3,3 +3,7 @@ bin
 RPG.depend
 RPG.layout
 rules.md
+CMakeCache.txt
+cmake_install.cmake
+RP2GE
+CMakeFiles
