@@ -13,7 +13,7 @@
 #include <arpa/inet.h>
 
 int create_socket();
-int attaqueAdv (int point_acces_client);
+int attaqueAdv (int point_acces_client,int choixj1);
 std::string comunicate_choix(int point_acces_client, std::string *choixj1);
 void fin_comm(int point_acces_client);
 

@@ -33,7 +33,7 @@ set(SOURCE
 
 
 # exécutable
-include_directories( include)
+include_directories(include)
 add_executable(RP2GE ${SRC} ${SOURCE} )
-
+add_executable(serveur_tcp serveur_TCP.c )
 # target_link_libraries(RP2GE ${HEADERS} )

@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Client_sock.h" />
 		<Unit filename="include/Gameplay.h" />
 		<Unit filename="include/James.h" />
 		<Unit filename="include/Joueur.h" />
@@ -40,6 +41,7 @@
 		<Unit filename="include/UI.h" />
 		<Unit filename="include/attaque.h" />
 		<Unit filename="src/Attaque.cpp" />
+		<Unit filename="src/Client_sock.cpp" />
 		<Unit filename="src/Gameplay.cpp" />
 		<Unit filename="src/James.cpp" />
 		<Unit filename="src/Joueur.cpp" />

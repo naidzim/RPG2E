@@ -124,15 +124,16 @@ string comunicate_choix(int point_acces_client, string *choixj1)
     return recu;
 }
 
-int attaqueAdv (int point_acces_client)
+int attaqueAdv (int point_acces_client, int choixj1)
 {
 
     /* pour l'envoi  */
-	char envoyer[100];
+	//char envoyer[100];
+
 	int emis;
 
 	/* pour la réception  */
-	char recu[100];
+	int recu;
 	int recus;
 
     char ch;
@@ -144,12 +145,9 @@ int attaqueAdv (int point_acces_client)
             ;
     }
 
-    /* lecture d'une ligne au clavier */
-    cout << "Que faut-il envoyer ? " << endl;
-    scanf("%99[^\n]",envoyer);
 
     /* envoi du bloc d'octets */
-    emis = send (point_acces_client, envoyer, strlen (envoyer) + 1, 0);
+    emis = send (point_acces_client, &choixj1, sizeof(choixj1), 0);
     if (emis < 0)
     {
         perror ("ERREUR-send ");
@@ -158,27 +156,21 @@ int attaqueAdv (int point_acces_client)
         exit (-1);
     }
 
-    printf ("ENVOI de %d octets\n", emis);
-    printf ("..Attente de recu\n");
+    cout << "..Attente de l'adversaire..." << endl ;
 
     /* réception de la réponse */
-    recus = recv (point_acces_client, recu, sizeof (recu), 0);
+    recus = recv (point_acces_client, &recu, sizeof (recu), 0);
     if (recus < 0)
     {
-        perror ("ERREUR-recv ");
+        cerr << "ERREUR-recv " << endl;
         shutdown (point_acces_client, SHUT_RDWR);
         close (point_acces_client);
         exit (-1);
     }
-    printf ("RECU  %d octets :", recus);
-    printf ("\t%s\n\n", recu);
 
-	/* fermeture du point d'accès */
-	shutdown (point_acces_client, SHUT_RDWR);
-	close (point_acces_client);
-	printf ("FIN DE CONNEXION\n\n");
 
-	return (0);
+
+    return recu;
 }
 
 void fin_comm(int point_acces_client)
@@ -189,3 +181,4 @@ void fin_comm(int point_acces_client)
 	cout << "FIN DE CONNEXION " << endl << endl;
 
 }
+

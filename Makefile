@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/najib/Bureau/RPG2E
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,6 +122,46 @@ RP2GE: cmake_check_build_system
 RP2GE/fast:
 	$(MAKE) -f CMakeFiles/RP2GE.dir/build.make CMakeFiles/RP2GE.dir/build
 .PHONY : RP2GE/fast
+
+#=============================================================================
+# Target rules for targets named serveur_tcp
+
+# Build rule for target.
+serveur_tcp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 serveur_tcp
+.PHONY : serveur_tcp
+
+# fast build rule for target.
+serveur_tcp/fast:
+	$(MAKE) -f CMakeFiles/serveur_tcp.dir/build.make CMakeFiles/serveur_tcp.dir/build
+.PHONY : serveur_tcp/fast
+
+serveur_TCP.o: serveur_TCP.c.o
+
+.PHONY : serveur_TCP.o
+
+# target to build an object file
+serveur_TCP.c.o:
+	$(MAKE) -f CMakeFiles/serveur_tcp.dir/build.make CMakeFiles/serveur_tcp.dir/serveur_TCP.c.o
+.PHONY : serveur_TCP.c.o
+
+serveur_TCP.i: serveur_TCP.c.i
+
+.PHONY : serveur_TCP.i
+
+# target to preprocess a source file
+serveur_TCP.c.i:
+	$(MAKE) -f CMakeFiles/serveur_tcp.dir/build.make CMakeFiles/serveur_tcp.dir/serveur_TCP.c.i
+.PHONY : serveur_TCP.c.i
+
+serveur_TCP.s: serveur_TCP.c.s
+
+.PHONY : serveur_TCP.s
+
+# target to generate assembly for a file
+serveur_TCP.c.s:
+	$(MAKE) -f CMakeFiles/serveur_tcp.dir/build.make CMakeFiles/serveur_tcp.dir/serveur_TCP.c.s
+.PHONY : serveur_TCP.c.s
 
 src/Attaque.o: src/Attaque.cpp.o
 
@@ -372,9 +412,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... RP2GE"
 	@echo "... edit_cache"
+	@echo "... RP2GE"
+	@echo "... rebuild_cache"
+	@echo "... serveur_tcp"
+	@echo "... serveur_TCP.o"
+	@echo "... serveur_TCP.i"
+	@echo "... serveur_TCP.s"
 	@echo "... src/Attaque.o"
 	@echo "... src/Attaque.i"
 	@echo "... src/Attaque.s"
