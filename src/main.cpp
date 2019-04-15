@@ -75,7 +75,16 @@ int main()
 
 
         }
-        cout << "Fin de la partie : vous avez gagné" << endl;
+        cout << "FIN DE LA PARTIE :";
+        if(joueur1.getPersonnage().estVivant() )
+        {
+            cout << "vous avez gagné !!" << endl;
+        }
+        else
+        {
+            cout << "vous avez perdu !!" << endl;
+        }
+
         fin_comm(point_acces);
 
     }
