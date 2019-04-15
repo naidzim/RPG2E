@@ -25,8 +25,14 @@ int main()
 
     if (choix == 1)
     {
+
         int point_acces;
         point_acces = create_socket();
+
+        cout << "Connexion reussie" << endl;
+        cout << "----------------------------------------------" << endl;
+        cout << "          Phase de preparation" << endl;
+        cout << "----------------------------------------------" << endl;
 
 
         printPersonnage();

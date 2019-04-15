@@ -29,10 +29,6 @@ int sessionInit()
                 return 0;
             case 1:
                 cout << "\n\nAttente de connexion...." << endl;
-                cout << "Connexion reussie" << endl;
-                cout << "----------------------------------------------" << endl;
-                cout << "          Phase de preparation" << endl;
-                cout << "----------------------------------------------" << endl;
                 bonChoix = 1;
                 return 1;
             case 2:
@@ -45,7 +41,7 @@ int sessionInit()
                 break;
         }
     } while (!bonChoix);
-
+    return 0;
 }
 
 void printPersonnage()
