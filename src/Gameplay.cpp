@@ -82,8 +82,38 @@ void choixPersonnage(Joueur& joueur){
             choix_ok=true;
         }
         else
-            cout<<"Choisis un personnage disponnible gros con !"<<endl;
+            cerr<<"Choisis un personnage disponnible !"<<endl;
         }
+
+}
+
+int choixPersonnageAdv(Joueur& joueur,string str){
+
+    string choix;
+    bool choix_ok =false;
+    while(!choix_ok){
+
+        choix = miniscule(str);
+
+        if (choix == "james")
+        {
+            joueur.m_perso = James();
+            choix_ok=true;
+
+        }
+        else if (choix == "laffont")
+        {
+
+            joueur.m_perso = Laffont();
+            choix_ok=true;
+        }
+        else
+        {
+            cerr<<"Error choix du Personnage du joueur adverse "<<endl;
+            return -1;
+        }
+    }
+    return 0;
 
 }
 

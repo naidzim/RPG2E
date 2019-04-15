@@ -165,13 +165,13 @@ au fur et a mesure que la partie avance*/
 void animation_debut()
 {
     cout<<"Debut du jeux ";
-    sleep(0.5);
+    sleep(1);
     cout<<".";
-    sleep(0.5);                //attend 3 secondes pour temporiser
+    sleep(1);                //attend 3 secondes pour temporiser
     cout<<".";
-    sleep(0.5);
+    sleep(1);
     cout<<"."<<endl;
-    sleep(0.3);
+    sleep(0.7);
     system ( "clear" );      //on vide le contenu de la console pour afficher l'UI du jeux
 
 }

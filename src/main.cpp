@@ -6,6 +6,7 @@
 #include "../include/Laffont.h"
 #include "../include/James.h"
 #include "../include/Joueur.h"
+#include "../include/Client_sock.h"
 #include <cstdlib>
 
 
@@ -24,18 +25,20 @@ int main()
 
     if (choix == 1)
     {
-        printPersonnage();
-        //Choix du joueur 1
-        cout << "Joueur 1 ";
-        choixPersonnage(joueur1);           //permet au joueur de choisir le personnage
-        cout<<endl<<"Vous avez choisi "<<joueur1.getPersonnage().getNom()<<" !"<<endl<<endl;
-        joueur1.getPersonnage().print_punch_line();
+        int point_acces;
+        point_acces = create_socket();
 
-        //choix du joueur 2
-        cout << "Joueur2 ";
-        choixPersonnage(joueur2);           //permet au joueur de choisir le personnage
-        cout<<endl<<"Vous avez choisi "<<joueur2.getPersonnage().getNom()<<" !"<<endl<<endl;
-        joueur2.getPersonnage().print_punch_line();
+
+        printPersonnage();
+        //Choix des joueurs
+        string choixj1;
+        string choixj2 = comunicate_choix(point_acces,&choixj1);
+        choixPersonnageAdv(joueur1,"james");           //permet au joueur de choisir le personnage
+        //joueur1.getPersonnage().print_punch_line();
+        choixPersonnageAdv(joueur2,choixj2);           //permet au joueur de choisir le personnage
+        cout<<endl<<"L'adversaire a choisi : "<<joueur2.getPersonnage().getNom()<<" !"<<endl<<endl;
+
+//debut de la partie
 
         animation_debut();
         affiche_UI(joueur1,joueur2,0,Attaque());                        //affiche l'UI du jeux (tour 0)
@@ -70,6 +73,10 @@ int main()
 
 
         }
+        cout << "Fin de la partie : vous avez gagné" << endl;
+        fin_comm(point_acces);
+
     }
+
     return 0;
 }

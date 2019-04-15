@@ -150,6 +150,33 @@ src/Attaque.cpp.s:
 	$(MAKE) -f CMakeFiles/RP2GE.dir/build.make CMakeFiles/RP2GE.dir/src/Attaque.cpp.s
 .PHONY : src/Attaque.cpp.s
 
+src/Client_sock.o: src/Client_sock.cpp.o
+
+.PHONY : src/Client_sock.o
+
+# target to build an object file
+src/Client_sock.cpp.o:
+	$(MAKE) -f CMakeFiles/RP2GE.dir/build.make CMakeFiles/RP2GE.dir/src/Client_sock.cpp.o
+.PHONY : src/Client_sock.cpp.o
+
+src/Client_sock.i: src/Client_sock.cpp.i
+
+.PHONY : src/Client_sock.i
+
+# target to preprocess a source file
+src/Client_sock.cpp.i:
+	$(MAKE) -f CMakeFiles/RP2GE.dir/build.make CMakeFiles/RP2GE.dir/src/Client_sock.cpp.i
+.PHONY : src/Client_sock.cpp.i
+
+src/Client_sock.s: src/Client_sock.cpp.s
+
+.PHONY : src/Client_sock.s
+
+# target to generate assembly for a file
+src/Client_sock.cpp.s:
+	$(MAKE) -f CMakeFiles/RP2GE.dir/build.make CMakeFiles/RP2GE.dir/src/Client_sock.cpp.s
+.PHONY : src/Client_sock.cpp.s
+
 src/Gameplay.o: src/Gameplay.cpp.o
 
 .PHONY : src/Gameplay.o
@@ -351,6 +378,9 @@ help:
 	@echo "... src/Attaque.o"
 	@echo "... src/Attaque.i"
 	@echo "... src/Attaque.s"
+	@echo "... src/Client_sock.o"
+	@echo "... src/Client_sock.i"
+	@echo "... src/Client_sock.s"
 	@echo "... src/Gameplay.o"
 	@echo "... src/Gameplay.i"
 	@echo "... src/Gameplay.s"

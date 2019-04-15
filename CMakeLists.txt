@@ -11,6 +11,7 @@ set(HEADERS
  	include/Laffont.h
 	include/Personnage.h
 	include/UI.h
+	include/Client_sock.h
 	)
 	
 set(SOURCE
@@ -21,6 +22,7 @@ set(SOURCE
  	src/Laffont.cpp
  	src/Personnage.cpp
  	src/UI.cpp
+	src/Client_sock.cpp
  	)
 
 # add_library(RPg ${HEADERS} ${SOURCE})

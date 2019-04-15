@@ -15,6 +15,7 @@ void ajoutPerso(vector<Personnage> &persoDispo);
 int sessionInit();
 void printPersonnage();
 void choixPersonnage(Joueur& joueur);
+int choixPersonnageAdv(Joueur& joueur,std::string choix);
 std::string miniscule (std::string str);
 
 #endif // DEF_GAMEPLAY
